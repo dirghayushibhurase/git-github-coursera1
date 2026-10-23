@@ -1,0 +1,39 @@
+# Task 6 — Fork Verification Evidence
+# GitHub username: dirghayushibhurase
+# Repository: git-github-coursera1
+# Date: 2026-10-23
+
+## Command Used
+curl -H "Authorization: Bearer <TOKEN>" \
+     -H "Accept: application/vnd.github+json" \
+     -H "X-GitHub-Api-Version: 2022-11-28" \
+     https://api.github.com/repos/dirghayushibhurase/git-github-coursera1
+
+## Equivalent gh CLI command
+gh api repos/dirghayushibhurase/git-github-coursera1 --jq '{name:.name, fork:.fork, parent:.parent, source:.source}'
+
+## Actual API Response (key fields)
+{
+  "name": "git-github-coursera1",
+  "fork": false,
+  "parent": null,
+  "source": null,
+  "html_url": "https://github.com/dirghayushibhurase/git-github-coursera1",
+  "created_at": "2026-10-23T17:56:16Z"
+}
+
+## Upstream Remote (configured locally via git remote add)
+upstream  https://github.com/ibm-developer-skills-network/mcino-Introduction-to-Git-and-GitHub.git (fetch)
+upstream  https://github.com/ibm-developer-skills-network/mcino-Introduction-to-Git-and-GitHub.git (push)
+
+## WARNING
+The GitHub API reports fork: false because this repository was NOT created via
+GitHub's "Fork" button. It was created as a new repository and content was
+manually synced from the IBM upstream using:
+  git remote add upstream https://github.com/ibm-developer-skills-network/mcino-Introduction-to-Git-and-GitHub.git
+  git fetch upstream
+  git merge upstream/main --allow-unrelated-histories
+
+To satisfy this task's requirement of parent: ibm-developer-skills-network/mcino-Introduction-to-Git-and-GitHub,
+the repository must be created via the GitHub UI Fork button from:
+  https://github.com/ibm-developer-skills-network/mcino-Introduction-to-Git-and-GitHub

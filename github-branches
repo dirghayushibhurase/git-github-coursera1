@@ -1,0 +1,38 @@
+# Task 9 — GitHub Branches Evidence
+# GitHub username: dirghayushibhurase
+# Repository: git-github-coursera1
+# Date: 2026-10-23
+
+## All Branches (local and remote)
+$ git branch -a
+
+  bug-fix-revert
+  bug-fix-typo
+* main
+  remotes/origin/HEAD -> origin/main
+  remotes/origin/bug-fix-revert
+  remotes/origin/bug-fix-typo
+  remotes/origin/main
+  remotes/upstream/HEAD -> upstream/main
+  remotes/upstream/main
+
+## Git Status (after push of main)
+$ git status
+
+On branch main
+Your branch is up to date with 'origin/main'.
+
+nothing to commit, working tree clean
+
+## Remote Branch Names on GitHub (gh CLI)
+$ gh api repos/dirghayushibhurase/git-github-coursera1/branches --jq '.[].name'
+
+main
+bug-fix-typo
+bug-fix-revert
+
+## Summary
+Local branches  : main, bug-fix-typo, bug-fix-revert
+Active branch   : main
+Remote (origin) : main, bug-fix-typo, bug-fix-revert
+Remote (upstream): main

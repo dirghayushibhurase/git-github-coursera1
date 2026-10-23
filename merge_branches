@@ -1,0 +1,39 @@
+# Task 7 — Merge Branches Evidence
+# GitHub username: dirghayushibhurase
+# Repository: git-github-coursera1
+# Date: 2026-10-23
+
+## Commands Run
+
+$ git checkout -b bug-fix-typo
+Switched to a new branch 'bug-fix-typo'
+
+# Fixed genuine typo: "Addtional Authors" -> "Additional Authors" in simple-interest.sh
+
+$ git add simple-interest.sh
+$ git commit -m "fix: correct typo Addtional -> Additional in simple-interest.sh"
+[bug-fix-typo e9a4bb6] fix: correct typo Addtional -> Additional in simple-interest.sh
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+$ git push origin bug-fix-typo
+remote: Create a pull request for 'bug-fix-typo' on GitHub by visiting:
+remote:      https://github.com/dirghayushibhurase/git-github-coursera1/pull/new/bug-fix-typo
+To https://github.com/dirghayushibhurase/git-github-coursera1.git
+ * [new branch]      bug-fix-typo -> bug-fix-typo
+
+$ git checkout main
+Switched to branch 'main'
+Your branch is up to date with 'origin/main'.
+
+$ git merge bug-fix-typo
+Updating b65c078..e9a4bb6
+Fast-forward
+ simple-interest.sh | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+## Result
+- Merge type: Fast-forward
+- Files changed: 1 (simple-interest.sh)
+- 1 insertion, 1 deletion
+- Commit merged: e9a4bb6
+- Base commit before merge: b65c078

@@ -1,0 +1,47 @@
+# Task 8 — Bug Fix Revert Pull Request Evidence
+# GitHub username: dirghayushibhurase
+# Repository: git-github-coursera1
+# Date: 2026-10-23
+
+## Branch Created
+$ git checkout -b bug-fix-revert
+Switched to a new branch 'bug-fix-revert'
+
+$ git revert HEAD --no-edit
+[bug-fix-revert c096523] Revert "fix: correct typo Addtional -> Additional in simple-interest.sh"
+ Date: Sat Oct 24 00:08:39 2026 +0530
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+$ git push origin bug-fix-revert
+remote: Create a pull request for 'bug-fix-revert' on GitHub by visiting:
+remote:      https://github.com/dirghayushibhurase/git-github-coursera1/pull/new/bug-fix-revert
+To https://github.com/dirghayushibhurase/git-github-coursera1.git
+ * [new branch]      bug-fix-revert -> bug-fix-revert
+
+## Pull Request Created via GitHub CLI
+$ gh pr create --repo dirghayushibhurase/git-github-coursera1 \
+    --base main --head bug-fix-revert \
+    --title "Revert bug-fix-typo: restore original simple-interest.sh comment" \
+    --body "This PR reverts the typo fix commit to allow re-evaluation."
+https://github.com/dirghayushibhurase/git-github-coursera1/pull/1
+
+## curl command used to retrieve PR
+curl -H "Authorization: Bearer <TOKEN>" \
+     -H "Accept: application/vnd.github+json" \
+     -H "X-GitHub-Api-Version: 2022-11-28" \
+     https://api.github.com/repos/dirghayushibhurase/git-github-coursera1/pulls/1
+
+## Actual API Response (key fields)
+{
+  "number": 1,
+  "state": "open",
+  "title": "Revert bug-fix-typo: restore original simple-interest.sh comment",
+  "head_branch": "bug-fix-revert",
+  "head_repo": "dirghayushibhurase/git-github-coursera1",
+  "base_branch": "main",
+  "base_repo": "dirghayushibhurase/git-github-coursera1",
+  "url": "https://github.com/dirghayushibhurase/git-github-coursera1/pull/1",
+  "created_at": "2026-10-23T18:39:10Z",
+  "merged": false,
+  "draft": false
+}
